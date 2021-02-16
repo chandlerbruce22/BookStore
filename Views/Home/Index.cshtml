@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IQueryable<Book>
+
+
+
+<div>
+    <h1 style="color:dodgerblue; text-align:center">Book Store</h1>
+
+    <!-- Table to display database of books. -->
+
+    <table class="tableSetting" style="border-color:black">
+        <!-- Headers for the table -->
+        <thead>
+            <tr><th style="padding-left:30px; text-decoration-line:underline">ID</th><th style="padding-left:60px; text-decoration-line:underline">Title</th><th style="padding-left:60px; text-decoration-line:underline">Author First Name</th><th style="padding-left:60px; text-decoration-line:underline">Author Last Name</th><th style="padding-left:60px; text-decoration-line:underline">Publisher</th><th style="padding-left:60px; text-decoration-line:underline">ISBN</th><th style="padding-left:60px; text-decoration-line:underline">Classification</th><th style="padding-left:60px; text-decoration-line:underline">Category</th><th style="padding-left:30px; text-decoration-line:underline">Price</th></tr>
+
+        </thead>
+
+        <!-- Razor code to display each part of the objects within the database. -->
+        <tbody>
+            @foreach (var x in Model)
+            {
+            <tr class="tableSetting">
+                <td style="padding-left:30px">@x.BookId</td>
+                <td style="padding-left:60px">@x.Title</td>
+                <td style="padding-left:60px">@x.AuthorFirst</td>
+                <td style="padding-left:60px">@x.AuthorLast</td>
+                <td style="padding-left:60px">@x.Publisher</td>
+                <td style="padding-left:60px">@x.ISBN</td>
+                <td style="padding-left:60px">@x.Classification</td>
+                <td style="padding-left:60px">@x.Category</td>
+                <td style="padding-left:30px">$@x.Price</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
