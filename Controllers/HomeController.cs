@@ -24,9 +24,17 @@ namespace BookStore.Controllers
         }
 
         //Send the context repo to display through the index view.
+        // Check if the model is valid (With a prepopulated DB, it'll always be valid.
         public IActionResult Index()
         {
-            return View(_repository.Books);
+            if (ModelState.IsValid)
+            {
+                return View(_repository.Books);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult Privacy()
