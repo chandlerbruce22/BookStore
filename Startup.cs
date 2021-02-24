@@ -55,11 +55,15 @@ namespace BookStore
 
             app.UseAuthorization();
 
+            // Endpoints to set the url of each page. This will display /P1 , /P2 , etc for each respective page.
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            endpoints.MapControllerRoute(
+                "pagination",
+                "P{page}",
+                new { Controller = "Home", action = "Index" });
+
+                endpoints.MapDefaultControllerRoute();
             });
 
             // Seed data check to ensure that data is populated.

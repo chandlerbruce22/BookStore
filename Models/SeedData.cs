@@ -34,6 +34,7 @@ namespace BookStore.Models
                         ISBN = "978-0451419439",
                         Classification = "Fiction",
                         Category = "Classic",
+                        PageNumber = 1488,
                         Price = 9.95
                     },
 
@@ -46,6 +47,7 @@ namespace BookStore.Models
                         ISBN = "978-0743270755",
                         Classification = "Non-Fiction",
                         Category = "Biography",
+                        PageNumber = 944,
                         Price = 14.58
                     },
 
@@ -58,6 +60,7 @@ namespace BookStore.Models
                         ISBN = "978-0553384611",
                         Classification = "Non-Fiction",
                         Category = "Biography",
+                        PageNumber = 832,
                         Price = 21.54
                     },
 
@@ -70,6 +73,7 @@ namespace BookStore.Models
                         ISBN = "978-0812981254",
                         Classification = "Non-Fiction",
                         Category = "Biography",
+                        PageNumber = 864,
                         Price = 11.61
                     },
 
@@ -82,6 +86,7 @@ namespace BookStore.Models
                         ISBN = "978-0812974492",
                         Classification = "Non-Fiction",
                         Category = "Historical",
+                        PageNumber = 528,
                         Price = 13.33
                     },
 
@@ -94,6 +99,7 @@ namespace BookStore.Models
                         ISBN = "978-0804191281",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
+                        PageNumber = 288,
                         Price = 15.95
                     },
 
@@ -106,6 +112,7 @@ namespace BookStore.Models
                         ISBN = "978-1455586691",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
+                        PageNumber = 304,
                         Price = 14.99
                     },
 
@@ -118,6 +125,7 @@ namespace BookStore.Models
                         ISBN = "978-1455523023",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
+                        PageNumber = 240,
                         Price = 21.66
                     },
 
@@ -130,6 +138,7 @@ namespace BookStore.Models
                         ISBN = "978-1591847984",
                         Classification = "Non-Fiction",
                         Category = "Business",
+                        PageNumber = 400,
                         Price = 29.16
                     },
 
@@ -142,7 +151,47 @@ namespace BookStore.Models
                         ISBN = "978-1591847984",
                         Classification = "Fiction",
                         Category = "Thrillers",
+                        PageNumber = 642,
                         Price = 15.03
+                    },
+
+                    new Book
+                    {
+                        Title = "American Sniper",
+                        AuthorFirst = "Chris",
+                        AuthorLast = "Kyle",
+                        Publisher = "William Morrow and Company",
+                        ISBN = "978-0062082350",
+                        Classification = "Non-Fiction",
+                        Category = "Historical Fiction",
+                        PageNumber = 400,
+                        Price = 9.31
+                    },
+
+                    new Book
+                    {
+                        Title = "Grit",
+                        AuthorFirst = "Angela",
+                        AuthorLast = "Duckworth",
+                        Publisher = "Scribner Book",
+                        ISBN = "978-1501111105",
+                        Classification = "Non-Fiction",
+                        Category = "Self-Help",
+                        PageNumber = 352,
+                        Price = 19.04
+                    },
+
+                    new Book
+                    {
+                        Title = "Never Split the Difference",
+                        AuthorFirst = "Chris",
+                        AuthorLast = "Voss",
+                        Publisher = "Harper Business",
+                        ISBN = "978-0062407801",
+                        Classification = "Non-Fiction",
+                        Category = "Self-Help",
+                        PageNumber = 288,
+                        Price = 18.69
                     }
 
                 );

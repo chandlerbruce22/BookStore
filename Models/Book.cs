@@ -31,6 +31,9 @@ namespace BookStore.Models
         public string Classification { get; set; }
         [Required]
         public string Category { get; set; }
+        // Pages for each book in the store.
+        [Required]
+        public int PageNumber { get; set; }
         // Decimals allowed for price formatting.
         [Required]
         public Double Price { get; set; }

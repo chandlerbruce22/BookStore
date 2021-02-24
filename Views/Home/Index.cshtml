@@ -2,38 +2,57 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model IQueryable<Book>
-
-
+@model BookListViewModel
+<!--  -->
 
 <div>
-    <h1 style="color:dodgerblue; text-align:center">Book Store</h1>
 
-    <!-- Table to display database of books. -->
+    <!-- For loop to display each item within the database  -->
+    @foreach (var x in Model.Books)
+    {
+        <div class="border">
+            <h4 style="text-align:center">@x.Title</h4>
 
-    <table class="tableSetting" style="border-color:black">
-        <!-- Headers for the table -->
-        <thead>
-            <tr><th style="padding-left:30px; text-decoration-line:underline">ID</th><th style="padding-left:60px; text-decoration-line:underline">Title</th><th style="padding-left:60px; text-decoration-line:underline">Author First Name</th><th style="padding-left:60px; text-decoration-line:underline">Author Last Name</th><th style="padding-left:60px; text-decoration-line:underline">Publisher</th><th style="padding-left:60px; text-decoration-line:underline">ISBN</th><th style="padding-left:60px; text-decoration-line:underline">Classification</th><th style="padding-left:60px; text-decoration-line:underline">Category</th><th style="padding-left:30px; text-decoration-line:underline">Price</th></tr>
+            <!--  Displaying the first half of the book information -->
+            <div class="p-2" style="width: 20%; float:left">
+                <p> <span style="font-weight: bold">By:  </span>@x.AuthorFirst @x.AuthorLast</p>
+                <p> <span style="font-weight: bold">Publisher: </span> @x.Publisher</p>
+                <p> <span style="font-weight: bold">Classifcation:  </span>@x.Classification</p>
+                <p> <span style="font-weight: bold">Category: </span> @x.Category</p>
+            </div>
 
-        </thead>
+            <!-- Second half of the book information -->
+            <div class="p-2" style="width: 80%; float:right">
+                <p> <span style="font-weight: bold">ISBN:  </span>@x.ISBN</p>
+                <p> <span style="font-weight: bold">Page Count: </span> @x.PageNumber</p>
+                <p> <span style="font-weight: bold">SRP:  </span> $@x.Price</p>
+                <p> <span style="font-weight: bold">Book ID: </span> @x.BookId</p>
+            </div>
 
-        <!-- Razor code to display each part of the objects within the database. -->
-        <tbody>
-            @foreach (var x in Model)
-            {
-            <tr class="tableSetting">
-                <td style="padding-left:30px">@x.BookId</td>
-                <td style="padding-left:60px">@x.Title</td>
-                <td style="padding-left:60px">@x.AuthorFirst</td>
-                <td style="padding-left:60px">@x.AuthorLast</td>
-                <td style="padding-left:60px">@x.Publisher</td>
-                <td style="padding-left:60px">@x.ISBN</td>
-                <td style="padding-left:60px">@x.Classification</td>
-                <td style="padding-left:60px">@x.Category</td>
-                <td style="padding-left:30px">$@x.Price</td>
-            </tr>
-            }
-        </tbody>
-    </table>
+            <!-- Buy now button -->
+            <div>
+                <button type="button" class="btn btn-dark">Buy Now!</button>
+            </div>
+
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Add to Wishlist
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Remove from Wishlist
+                </label>
+            </div>
+
+        </div>
+    }
+
 </div>
+
+<!-- Page higlights dictation -->
+
+<div page-model="@Model.PagingInfo" page-action="Index"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary"
+     class="btn-group pull-right m-1"></div>
