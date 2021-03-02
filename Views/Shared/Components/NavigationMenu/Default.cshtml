@@ -4,6 +4,8 @@
 
 @foreach (string category in Model)
 {
+    // Making the category navigation side bar for the book store. 
+    // Seperate file so we can reference it later on.
     <a class="btn btn-block @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
        asp-action="Index" asp-controller="Home"
        asp-route-category="@category"
