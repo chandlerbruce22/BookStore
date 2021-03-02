@@ -58,10 +58,22 @@ namespace BookStore
             // Endpoints to set the url of each page. This will display /P1 , /P2 , etc for each respective page.
             app.UseEndpoints(endpoints =>
             {
-            endpoints.MapControllerRoute(
-                "pagination",
-                "P{page}",
-                new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("page",
+                    "{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+                endpoints.MapControllerRoute(
+                    "pagination",
+                    "P{page}",
+                    new { Controller = "Home", action = "Index" });
 
                 endpoints.MapDefaultControllerRoute();
             });

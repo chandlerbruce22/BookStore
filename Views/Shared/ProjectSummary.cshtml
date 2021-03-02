@@ -1,0 +1,38 @@
+﻿
+
+@model Book
+
+<div class="border">
+    <h4 style="text-align:center">@Model.Title</h4>
+
+    <!--  Displaying the first half of the book information -->
+    <div class="p-2" style="width: 20%; float:left">
+        <p> <span style="font-weight: bold">By:  </span>@Model.AuthorFirst @Model.AuthorLast</p>
+        <p> <span style="font-weight: bold">Publisher: </span> @Model.Publisher</p>
+        <p> <span style="font-weight: bold">Classifcation:  </span>@Model.Classification</p>
+        <p> <span style="font-weight: bold">Category: </span> @Model.Category</p>
+    </div>
+
+    <!-- Second half of the book information -->
+    <div class="p-2" style="width: 80%; float:right">
+        <p> <span style="font-weight: bold">ISBN:  </span>@Model.ISBN</p>
+        <p> <span style="font-weight: bold">Page Count: </span> @Model.PageNumber</p>
+        <p> <span style="font-weight: bold">SRP:  </span> $@Model.Price</p>
+        <p> <span style="font-weight: bold">Book ID: </span> @Model.BookId</p>
+    </div>
+
+    <!-- Buy now button -->
+    <div>
+        <button type="button" class="btn btn-dark">Buy Now!</button>
+    </div>
+
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Add to Wishlist
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Remove from Wishlist
+        </label>
+    </div>
+
+</div>

@@ -7,44 +7,11 @@
 
 <div>
 
-    <!-- For loop to display each item within the database  -->
-    @foreach (var x in Model.Books)
-    {
-        <div class="border">
-            <h4 style="text-align:center">@x.Title</h4>
-
-            <!--  Displaying the first half of the book information -->
-            <div class="p-2" style="width: 20%; float:left">
-                <p> <span style="font-weight: bold">By:  </span>@x.AuthorFirst @x.AuthorLast</p>
-                <p> <span style="font-weight: bold">Publisher: </span> @x.Publisher</p>
-                <p> <span style="font-weight: bold">Classifcation:  </span>@x.Classification</p>
-                <p> <span style="font-weight: bold">Category: </span> @x.Category</p>
-            </div>
-
-            <!-- Second half of the book information -->
-            <div class="p-2" style="width: 80%; float:right">
-                <p> <span style="font-weight: bold">ISBN:  </span>@x.ISBN</p>
-                <p> <span style="font-weight: bold">Page Count: </span> @x.PageNumber</p>
-                <p> <span style="font-weight: bold">SRP:  </span> $@x.Price</p>
-                <p> <span style="font-weight: bold">Book ID: </span> @x.BookId</p>
-            </div>
-
-            <!-- Buy now button -->
-            <div>
-                <button type="button" class="btn btn-dark">Buy Now!</button>
-            </div>
-
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Add to Wishlist
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> Remove from Wishlist
-                </label>
-            </div>
-
-        </div>
-    }
+        <!-- For loop to display each item within the database  -->
+        @foreach (var x in Model.Books)
+        {
+            <partial name="ProjectSummary" model="x"/>
+        }
 
 </div>
 
@@ -55,4 +22,5 @@
      page-class="btn"
      page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary"
+     page-url-category="@Model.CurrentCategory"
      class="btn-group pull-right m-1"></div>

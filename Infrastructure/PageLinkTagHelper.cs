@@ -18,7 +18,7 @@ namespace BookStore.Infrastructure
         // Import Url Helper 
         private IUrlHelperFactory urlHelperFactory;
 
-        public PageLinkTagHelper (IUrlHelperFactory hp)
+        public PageLinkTagHelper(IUrlHelperFactory hp)
         {
             urlHelperFactory = hp;
         }
@@ -28,6 +28,9 @@ namespace BookStore.Infrastructure
         public ViewContext ViewContext { get; set; }
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }
+
+        [HtmlAttributeName(DictionaryAttributePrefix ="page-url")]
+        public Dictionary<string, object> PageUrlValues {get; set;} = new Dictionary<string, object>();
 
         //Define variables and getters and setters for dynamic page highlighters
         public bool PageClassesEnabled { get; set; } = false;
@@ -47,7 +50,9 @@ namespace BookStore.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+
+                PageUrlValues["page"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 if (PageClassesEnabled)
                 {
                     tag.AddCssClass(PageClass);
