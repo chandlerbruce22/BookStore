@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Components
 {
+    //Navigation Menu View Component.
     public class NavigationMenuViewComponent : ViewComponent
     {
         private iBookRepository repository;

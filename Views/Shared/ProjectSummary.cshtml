@@ -26,13 +26,12 @@
         <button type="button" class="btn btn-dark">Buy Now!</button>
     </div>
 
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> Add to Wishlist
-        </label>
-        <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Remove from Wishlist
-        </label>
-    </div>
+    <form id="@Model.BookId" asp-page="/Buy" method="post">
+        <input type="hidden" asp-for="BookId"/>
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="card-text p-1">
+            <button type="submit" class="btn-success btn-sm pull-right">Add to Cart</button>
+        </span>
+    </form>
 
 </div>
